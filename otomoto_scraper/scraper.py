@@ -1,7 +1,5 @@
 import datetime
-import json
 import os
-
 import yaml
 import io
 import logging
@@ -92,9 +90,4 @@ if __name__ == '__main__':
             'data-with-greg-scrapers',
             f'{scraper.__class__.__name__}/{today}/{region}/{str(params)}'
         )
-        print(upload_response)
-        print()
-
-
-
-
+        log.info(upload_response)
