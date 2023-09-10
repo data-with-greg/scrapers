@@ -1,13 +1,11 @@
-import datetime
 import os
-import yaml
 import io
 import logging
 import requests
 import multiprocessing
 import pandas as pd
 import boto3
-from parsers import OtomotoListingFullParser
+from .parsers import OtomotoListingFullParser
 from bs4 import BeautifulSoup
 
 
@@ -77,19 +75,3 @@ class OtomotoScraper:
         )
         res = s3.Object(s3_buket, s3_key).put(Body=file_like_object.getvalue())
         return res
-
-
-if __name__ == '__main__':
-    setups = yaml.safe_load(open('./scraper_setups/setup.yaml'))
-    today = datetime.datetime.now().isoformat()
-
-    for setup in setups:
-        region = setup['region']
-        base_url = f'https://www.otomoto.pl/osobowe/uzywane/od-2015/{region}'
-        params = setup['params']
-        scraper = OtomotoScraper(base_url, params)
-        upload_response = scraper.fetch_all_pages_s3(
-            'data-with-greg-scrapers',
-            f'{scraper.__class__.__name__}/{today}/{region}/{str(params)}'
-        )
-        log.info(upload_response)
