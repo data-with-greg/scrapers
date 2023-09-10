@@ -12,6 +12,7 @@ if __name__ == '__main__':
         base_url = f'https://www.otomoto.pl/osobowe/uzywane/od-2015/{region}'
         params = setup['params']
         scraper = OtomotoScraper(base_url, params)
+        # assuming `./data/` already exists
         upload_response = scraper.fetch_all_pages_file(
-            f'{scraper.__class__.__name__}_{today}_{region}_{str(params)}'
+            f'data/{scraper.__class__.__name__}_{today}_{region}_{str(params)}.csv'
         )
