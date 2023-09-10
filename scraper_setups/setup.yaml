@@ -1,0 +1,112 @@
+- region: mazowieckie
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: mazowieckie
+  params: 
+    search[filter_enum_fuel_type]: petrol
+    
+- region: wielkopolskie
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: wielkopolskie
+  params:
+    search[filter_enum_fuel_type]: petrol
+    
+- region: slaskie
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: slaskie
+  params:
+    search[filter_enum_fuel_type]: petrol
+    
+- region: malopolskie
+  
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: malopolskie
+  params:
+    search[filter_enum_fuel_type]: petrol
+    
+- region: dolnoslaskie
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: dolnoslaskie
+  params:
+    search[filter_enum_fuel_type]: petrol
+    
+- region: lodzkie
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: lodzkie
+  params:
+    search[filter_enum_fuel_type]: petrol
+
+- region: pomorskie
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: pomorskie
+  params:
+    search[filter_enum_fuel_type]: petrol
+
+- region: kujawsko-pomorskie
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: kujawsko-pomorskie
+  params:
+    search[filter_enum_fuel_type]: petrol
+
+- region: lubelskie
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: lubelskie
+  params:
+    search[filter_enum_fuel_type]: petrol
+
+- region: zachodniopomorskie
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: zachodniopomorskie
+  params:
+    search[filter_enum_fuel_type]: petrol
+
+- region: podkarpackie
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: podkarpackie
+  params:
+    search[filter_enum_fuel_type]: petrol
+
+- region: swietokrzyskie
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: swietokrzyskie
+  params:
+    search[filter_enum_fuel_type]: petrol
+
+- region: lubuskie
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: lubuskie
+  params:
+    search[filter_enum_fuel_type]: petrol
+
+- region: warminsko-mazurskie
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: warminsko-mazurskie
+  params:
+    search[filter_enum_fuel_type]: petrol
+
+- region: podlaskie
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: podlaskie
+  params:
+    search[filter_enum_fuel_type]: petrol
+
+- region: opolskie
+  params:
+    search[filter_enum_fuel_type]: diesel
+- region: opolskie
+  params:
+    search[filter_enum_fuel_type]: petrol
