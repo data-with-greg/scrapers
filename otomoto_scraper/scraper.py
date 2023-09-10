@@ -7,6 +7,7 @@ import requests
 import multiprocessing
 import pandas as pd
 import boto3
+from parsers import OtomotoListingFullParser
 from bs4 import BeautifulSoup
 
 
@@ -57,7 +58,7 @@ class OtomotoScraper:
             pages_html = p.map(self.fetch_page, pp)
             pages_items_divs = p.map(self.parse_offers_divs, pages_html)
 
-        df = pd.DataFrame(data=(item for page in pages_items_divs for item in page), columns=['item_div'])
+        df = pd.DataFrame(data=(OtomotoListingFullParser(item).to_dict() for page in pages_items_divs for item in page))
 
         if file_path:
             df.to_csv(file_path)
@@ -79,7 +80,7 @@ class OtomotoScraper:
 
 if __name__ == '__main__':
     setups = yaml.safe_load(open('./scraper_setups/setup.yaml'))
-    today = datetime.date.today().isoformat()
+    today = datetime.datetime.now().isoformat()
 
     for setup in setups:
         region = setup['region']
