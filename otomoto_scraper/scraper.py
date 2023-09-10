@@ -45,7 +45,7 @@ class OtomotoScraper:
         divs = soup.find_all('article', {'class': 'ooa-1t80gpj ev7e6t818'})
         return [str(i) for i in divs]
 
-    def fetch_all_pages(self, file_path=None):
+    def fetch_all_pages_pandas(self):
         if self.pages > 500:
             log.warning(
                 f'More than 500 pages ({self.pages}) detected. '
@@ -60,13 +60,14 @@ class OtomotoScraper:
 
         df = pd.DataFrame(data=(OtomotoListingFullParser(item).to_dict() for page in pages_items_divs for item in page))
 
-        if file_path:
-            df.to_csv(file_path)
-
         return df
 
-    def pages_to_s3(self, s3_buket, s3_key):
-        data = self.fetch_all_pages()
+    def fetch_all_pages_file(self, file_path):
+        df = self.fetch_all_pages_pandas()
+        df.to_csv(file_path)
+
+    def fetch_all_pages_s3(self, s3_buket, s3_key):
+        data = self.fetch_all_pages_pandas()
         file_like_object = io.StringIO()
         data.to_csv(file_like_object, index=False, header=False)
         s3 = boto3.resource(
@@ -87,7 +88,7 @@ if __name__ == '__main__':
         base_url = f'https://www.otomoto.pl/osobowe/uzywane/od-2015/{region}'
         params = setup['params']
         scraper = OtomotoScraper(base_url, params)
-        upload_response = scraper.pages_to_s3(
+        upload_response = scraper.fetch_all_pages_s3(
             'data-with-greg-scrapers',
             f'{scraper.__class__.__name__}/{today}/{region}/{str(params)}'
         )
