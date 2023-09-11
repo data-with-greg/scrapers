@@ -20,7 +20,6 @@
     search[filter_enum_fuel_type]: petrol
     
 - region: malopolskie
-  
   params:
     search[filter_enum_fuel_type]: diesel
 - region: malopolskie
