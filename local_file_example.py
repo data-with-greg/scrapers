@@ -2,10 +2,7 @@ import re
 import yaml
 import datetime
 from otomoto_scraper.scraper import OtomotoScraper
-
-
-def replace_special(string):
-    return re.sub('[^a-zA-Z0-9_]', '', string)
+from otomoto_scraper.utils import replace_special
 
 
 if __name__ == '__main__':
