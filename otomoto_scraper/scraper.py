@@ -31,8 +31,8 @@ class OtomotoScraper:
         return max(vals)
 
     def pages_params(self):
-        pages_params = ({'page': i+1, 'order[created_at_first]': 'desc', '':''} for i in range(self.pages))
-        return [i.update(self.params) for i in pages_params]
+        pages_params = ({'page': i+1, 'search[order]': 'filter_float_price:desc'} for i in range(self.pages))
+        return [dict(**i, **self.params) for i in pages_params]
 
     def fetch_page(self, params: dict = None):
         res = self.session.get(self.base_url, params=params)

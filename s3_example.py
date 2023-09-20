@@ -15,5 +15,5 @@ if __name__ == '__main__':
         scraper = OtomotoScraper(base_url, params)
         upload_response = scraper.fetch_all_pages_s3(
             'data-with-greg-scrapers',
-            f'{scraper.__class__.__name__}/{replace_special(today)}/{region}/{replace_special(str(params))}'
+            f'{scraper.__class__.__name__}/{today}/{region}/{str(params)}'
         )
