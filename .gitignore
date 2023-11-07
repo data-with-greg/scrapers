@@ -2,4 +2,5 @@
 activate.sh
 .idea/
 .DS_Store/
+.DS_Store
 */__pycache__/*
